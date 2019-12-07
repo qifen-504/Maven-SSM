@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <!-- namespace指定和哪个Mapper映射器接口对应 -->
+<mapper namespace="cn.xdl.mapper.EmpDao">
+	<!-- 定义SQL语句 -->	
+	<select id="findByNoAndPass" resultType="cn.xdl.bean.Emp">
+		select *from emp where no =#{no} and password=#{password}
+	</select>
+  	<insert id="insertEmp" parameterType="cn.xdl.bean.Emp">
+  		insert into emp(id,no,password,age,email,salary) values(seq_emp_id.nextval,#{no},#{password},#{age},#{email},#{salary})
+  	</insert>
+  	<select id="findAll" resultType="cn.xdl.bean.Emp">
+  		select * from emp
+  	</select>
+</mapper>
